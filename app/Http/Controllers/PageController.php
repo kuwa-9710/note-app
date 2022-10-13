@@ -11,7 +11,10 @@ use Illuminate\Support\Facades\Validator;
 
 class PageController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,15 +22,10 @@ class PageController extends Controller
      */
     public function index(Note $notes, Page $pages)
     {
-        if ($user = Auth::user()) {
-            $user = Auth::user();
-            $notes = Note::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'DESC')->get();
-            $pages = Page::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'DESC')->get();
-
-            return view('pages.index', compact('notes', 'pages'));
-        } else {
-            return redirect('login');
-        }
+        $user = Auth::user();
+        $notes = Note::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'DESC')->get();
+        $pages = Page::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'DESC')->get();
+        return view('pages.index', compact('notes', 'pages'));
     }
 
     /**
@@ -86,18 +84,13 @@ class PageController extends Controller
      */
     public function show($id)
     {
-        if ($user = Auth::user()) {
-            $user = Auth::user();
-            $content = Page::find($id);
-            $notes = Note::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'DESC')->get();
-            $pages = Page::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'DESC')->get();
-            $created_date = Carbon::createFromFormat('Y-m-d H:i:s', $content->created_at)->format('Y-m-d');
-            $updated_date = Carbon::createFromFormat('Y-m-d H:i:s', $content->updated_at)->format('Y-m-d');
-
-            return view('pages.show', compact('notes', 'pages', 'content', 'user', 'created_date', 'updated_date'));
-        } else {
-            return redirect('login');
-        }
+        $user = Auth::user();
+        $content = Page::find($id);
+        $notes = Note::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'DESC')->get();
+        $pages = Page::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'DESC')->get();
+        $created_date = Carbon::createFromFormat('Y-m-d H:i:s', $content->created_at)->format('Y-m-d');
+        $updated_date = Carbon::createFromFormat('Y-m-d H:i:s', $content->updated_at)->format('Y-m-d');
+        return view('pages.show', compact('notes', 'pages', 'content', 'user', 'created_date', 'updated_date'));
     }
 
     /**
@@ -139,10 +132,10 @@ class PageController extends Controller
         $page->page_title = $request->input('page_title');
         $page->page_content = $request->input('page_content');
         $page->save();
-        
+
         $note->updated_at = $page->updated_at;
         $note->save();
-        
+
         return redirect()->route('pages.show', [$page]);
     }
 

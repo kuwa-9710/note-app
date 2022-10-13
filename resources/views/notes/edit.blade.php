@@ -7,7 +7,7 @@
             </x-aside>
         @endauth
         <x-main>
-            <x-notes.note-list :notes="$notes"></x-notes.note-list>
+            <x-notes.note-edit :content="$content"></x-notes.note-edit>
         </x-main>
     </div>
     <x-pages.sm-sidebar :notes="$notes" :pages="$pages"></x-pages.sm-sidebar>

@@ -1,13 +1,13 @@
 <x-layout>
     <x-header></x-header>
-    <div class="flex max-w-[85rem] w-full">
+    <div class="flex max-w-[85rem] w-full min-h-[calc(100vh-76px)]">
         @auth
             <x-aside :notes="$notes" :pages="$pages">
                 <x-notes.create-note></x-notes.create-note>
             </x-aside>
         @endauth
         <x-main>
-            <div class="px-10">
+            <div class="px-4 md:px-10">
                 <x-pages.create :notes="$notes"></x-pages.create>
             </div>
         </x-main>

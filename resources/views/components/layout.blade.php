@@ -38,8 +38,15 @@
             ]
         });
 
-        function deleteTask() {
+        function deletePage() {
             if (confirm('Do you delete this page?')) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        function deleteNote() {
+            if (confirm('Do you delete this note?')) {
                 return true;
             } else {
                 return false;

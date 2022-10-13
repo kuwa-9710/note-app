@@ -19,12 +19,12 @@
                     class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7]">
                     <div class="flex justify-between items-center py-3 px-4 border-b dark:border-gray-700">
                         <h3 class="font-bold text-gray-800 dark:text-white">
-                            Please input Note title below.
+                            Noteを新規作成
                         </h3>
                         <button type="button"
                             class="hs-dropdown-toggle inline-flex flex-shrink-0 justify-center items-center h-8 w-8 rounded-md text-gray-500 hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-white transition-all text-sm dark:focus:ring-gray-700 dark:focus:ring-offset-gray-800"
                             data-hs-overlay="#hs-slide-down-animation-modal">
-                            <span class="sr-only">Close</span>
+                            <span class="sr-only">キャンセル</span>
                             <svg class="w-3.5 h-3.5" width="8" height="8" viewBox="0 0 8 8" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -36,8 +36,8 @@
                     <div class="p-4 overflow-y-auto">
                         <label class="w-full">
                             <input
-                                class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-lg py-4 pl-4 shadow-sm focus:outline-none focus:border-indigo-400 focus:ring-indigo-400 focus:ring-1 sm:text-sm"
-                                placeholder="Note Title" type="text" name="note_title" />
+                                class="placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-lg py-4 pl-4 shadow-sm focus:outline-none focus:border-indigo-400 focus:ring-indigo-400 focus:ring-1 sm:text-sm"
+                                placeholder="Noteのタイトルを入力してください" type="text" name="note_title" />
                         </label>
                         @error('note_title')
                             <div class="mt-3">
@@ -51,11 +51,11 @@
                         <button type="button" onclick="location.href='/pages'"
                             class="hs-dropdown-toggle py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-indigo-600 transition-all text-sm dark:bg-gray-800 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
                             data-hs-overlay="#hs-slide-down-animation-modal">
-                            Cancel
+                            キャンセル
                         </button>
                         <button type="submit"
-                            class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-indigo-500 text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"">
-                            Enter
+                            class="py-3 px-6 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-indigo-500 text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"">
+                            作成
                         </button>
                     </div>
                 </div>

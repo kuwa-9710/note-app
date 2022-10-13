@@ -9,10 +9,11 @@
     <div class=" top-0 inset-0 px-4 pt-8 overflow-auto pb-6 dark:text-white dark:bg-gray-800">
         <div class="flex place-content-between mb-4 items-center">
             <h2 class="text-slate-800 inline-block font-bold text-2xl dark:text-white">Notes</h2>
-            {{ $slot }}
+            <x-notes.sm-create-note></x-notes.sm-create-note>
         </div>
         <div>
             <x-pages.create-page></x-pages.create-page>
+            <x-notes.edit-note></x-notes.edit-note>
         </div>
         {{-- @if ($notes->isNotEmpty()) --}}
         @foreach ($notes as $note)

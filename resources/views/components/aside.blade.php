@@ -4,13 +4,14 @@
     'content' => [],
 ])
 <div
-    class="h-[calc(100vh-76px)] lg: top-0 hidden lg:block inset-0 w-[22rem] px-4 pt-8 overflow-auto pb-6 dark:text-white dark:bg-gray-800">
+    class="h-[calc(100vh-76px)] lg: top-0 hidden lg:block inset-0 w-[22rem] px-4 pt-8 overflow-auto bg-white pb-6 dark:text-white dark:bg-gray-800">
     <div class="flex place-content-between mb-4 items-center">
         <h2 class="text-slate-800 inline-block font-bold text-2xl dark:text-white">Notes</h2>
         {{ $slot }}
     </div>
     <div>
         <x-pages.create-page></x-pages.create-page>
+        <x-notes.edit-note></x-notes.edit-note>
     </div>
     @if ($notes->isNotEmpty())
         @foreach ($notes as $note)

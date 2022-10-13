@@ -6,10 +6,9 @@
             <button type="button" class="lg:hidden text-gray-500 hover:text-gray-600" data-hs-overlay="#docs-sidebar"
                 aria-controls="docs-sidebar" aria-label="Toggle navigation">
                 <span class="sr-only">Toggle Navigation</span>
-                <svg class="w-5 h-5" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                  </svg>
             </button>
 
             <a class="text-slate-800 inline-flex items-center md:gap-x-2 text-xl font-semibold dark:text-white"
@@ -42,9 +41,9 @@
             </div>
         </div>
         <div id="navbar-image-and-text-1"
-            class="bg-white hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
+            class="bg-white hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block dark:bg-gray-800">
             <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5">
-                <a class="font-medium text-indigo-500" href="/pages" aria-current="page">Notes</a>
+                <a class="font-medium" href="/pages" aria-current="page">TOP</a>
                 <form action=" {{ route('logout') }}" method="POST">
                     @csrf
                     <button

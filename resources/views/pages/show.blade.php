@@ -1,6 +1,6 @@
 <x-layout>
     <x-header></x-header>
-    <div class="block md:flex w-full h-auto">
+    <div class="block md:flex w-full h-auto bg-indigo-50 min-h-[calc(100vh-76px)]">
         <x-aside :notes="$notes" :pages="$pages" :content="$content">
             <x-notes.create-note></x-notes.create-note>
         </x-aside>

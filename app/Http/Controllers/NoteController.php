@@ -10,7 +10,10 @@ use Illuminate\Support\Facades\Validator;
 
 class NoteController extends Controller
 {
-    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,15 +21,10 @@ class NoteController extends Controller
      */
     public function index(Note $notes, Page $pages)
     {
-        if($user = Auth::user()) {
-            $user = Auth::user();
-            $notes = Note::where('user_id', \Auth::user()->id)->get();
-            $pages = Page::where('user_id', \Auth::user()->id)->get();
-    
-            return view('notes.index', compact('notes', 'pages'));
-        } else {
-            return redirect('login');
-        }
+        $user = Auth::user();
+        $notes = Note::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'DESC')->get();
+        $pages = Page::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'DESC')->get();
+        return view('notes.index', compact('notes', 'pages'));
     }
 
     /**
@@ -36,7 +34,11 @@ class NoteController extends Controller
      */
     public function create()
     {
-        
+        $user = Auth::user();
+        $notes = Note::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'DESC')->get();
+        $pages = Page::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'DESC')->get();
+
+        return view('notes.create', compact('notes', 'pages'));
     }
 
     /**
@@ -60,7 +62,7 @@ class NoteController extends Controller
         $note->note_title = $request->note_title;
         $note->save();
 
-        return redirect('/pages');
+        return redirect('/notes');
     }
 
     /**
@@ -82,7 +84,10 @@ class NoteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $notes = Note::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'DESC')->get();
+        $pages = Page::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'DESC')->get();
+        $content = Note::find($id);
+        return view('notes.edit', compact('notes', 'pages', 'content'));
     }
 
     /**
@@ -94,7 +99,11 @@ class NoteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $note = Note::find($id);
+        $note->note_title = $request->input('note_title');
+        $note->save();
+
+        return redirect('/notes');
     }
 
     /**

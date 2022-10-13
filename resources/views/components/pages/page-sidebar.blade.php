@@ -7,20 +7,22 @@
                         class="text-slate-500">{{ $note->note_title }}</span></li>
             @endif
         @endforeach
-        <li class="py-2 text-slate-400 border-b border-slate-200 flex place-content-between">Author:<span
+        <li class="py-2 text-slate-400 border-b border-slate-200 flex place-content-between">作成者:<span
                 class="text-slate-500">{{ $user->name }}</span></li>
-        <li class="py-2 text-slate-400 border-b border-slate-200 flex place-content-between">Create:<span
+        <li class="py-2 text-slate-400 border-b border-slate-200 flex place-content-between">作成日:<span
                 class="text-slate-500">{{ $created_date }}</span></li>
-        <li class="py-2 text-slate-400 border-b border-slate-200 flex place-content-between">Update:<span
+        <li class="py-2 text-slate-400 border-b border-slate-200 flex place-content-between">更新日:<span
                 class="text-slate-500">{{ $updated_date }}</span></li>
         <li class="pt-4">
             <x-primary-button class=" text-xl w-full flex justify-center mb-2"
-                onclick="location.href='/pages/{{ $content->id }}/edit'">EDIT</x-primary-button>
-            <form action="/pages/{{ $content->id }}" method="POST"  onsubmit="return deleteTask();" >
+                onclick="location.href='/pages/{{ $content->id }}/edit'">編集</x-primary-button>
+            <form action="/pages/{{ $content->id }}" method="POST"  onsubmit="return deletePage();" >
                 @csrf
                 @method('DELETE')
                 <button
-                    type="submit"class="border border-red-500 bg-white w-full flex justify-center bold items-center px-4 py-2 rounded-md font-semibold text-xs text-red-500 uppercase tracking-widest hover:bg-red-500 hover:text-white active:bg-red-600 focus:outline-none focus:border-red-600 focus:ring ring-red-300 disabled:opacity-25 transition ease-in-out duration-150">DELETE</button>
+                    type="submit"class="border border-red-500 bg-white w-full flex justify-center bold items-center px-4 py-2 rounded-md font-semibold text-xs text-red-500 uppercase tracking-widest hover:bg-red-500 hover:text-white active:bg-red-600 focus:outline-none focus:border-red-600 focus:ring ring-red-300 disabled:opacity-25 transition ease-in-out duration-150">
+                    削除
+                </button>
             </form>
         </li>
     </ul>
