@@ -1,8 +1,6 @@
 @props(['notes'])
-<div class="md:mx-10 font-bold text-3xl text-slate-800 my-5">
-    <h2>Notes</h2>
-</div>
-<div class="md:mx-10 bg-white rounded-lg shadow-md mb-5 p-2 md:p-0">
+<div class="md:mx-10 bg-white rounded-lg shadow-md my-5 py-5 px-3">
+    <h2 class="border-b border-slate-500 border-dashed md:mx-10 font-bold text-3xl text-slate-800 py-3 mb-5">Notes</h2>
     @foreach ($notes as $note)
         <div class="py-3 md:mx-10 md:px-10 divide-y divide-slate-300 divide-solid">
             <table class="w-full">

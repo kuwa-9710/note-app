@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div class="h-screen text-slate-600">
+    <div class="h-screen text-slate-700">
         {{ $slot }}        
     </div>
 

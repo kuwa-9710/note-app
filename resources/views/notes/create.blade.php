@@ -1,6 +1,6 @@
 <x-layout>
     <x-header></x-header>
-    <div class="flex max-w-[85rem] w-full min-h-[calc(100vh-76px)]">
+    <div class="flex w-full min-h-[calc(100vh-76px)]">
         @auth
             <x-aside :notes="$notes" :pages="$pages">
                 <x-notes.create-note></x-notes.create-note>

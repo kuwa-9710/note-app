@@ -12,5 +12,4 @@
     <button type="button" onclick="history.back()" class="block bg-slate-300 text-slate-600 w-full py-3 rounded-md hover:bg-slate-400">
         キャンセル
     </button>
-
 </form>
