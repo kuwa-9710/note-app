@@ -17,14 +17,14 @@
 
             <!-- Email Address -->
             <div>
-                <x-input-label for="email" :value="__('Email')" />
+                <x-input-label for="email" :value="__('メールアドレス')" />
 
                 <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <!-- Password -->
             <div class="mt-4">
-                <x-input-label for="password" :value="__('Password')" />
+                <x-input-label for="password" :value="__('パスワード')" />
 
                 <x-text-input id="password" class="block mt-1 w-full"
                                 type="password"
@@ -40,9 +40,9 @@
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex items-center justify-end mt-4 mb-6">
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                    <a class="text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('パスワードをお忘れの場合') }}
                     </a>
                 @endif
@@ -52,5 +52,7 @@
                 </x-primary-button>
             </div>
         </form>
+
+        <a href="/register" class="mb-3 text-center block text-sm underline text-blue-600 hover:text-blue-800 visited:text-purple-600">無料で新規会員登録</a>
     </x-auth-card>
 </x-guest-layout>

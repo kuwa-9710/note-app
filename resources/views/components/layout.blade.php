@@ -39,14 +39,14 @@
         });
 
         function deletePage() {
-            if (confirm('Do you delete this page?')) {
+            if (confirm('このPageを本当に削除しますか?')) {
                 return true;
             } else {
                 return false;
             }
         }
         function deleteNote() {
-            if (confirm('Do you delete this note?')) {
+            if (confirm('このNoteを本当に削除しますか？')) {
                 return true;
             } else {
                 return false;
