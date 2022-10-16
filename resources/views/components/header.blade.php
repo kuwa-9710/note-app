@@ -43,7 +43,7 @@
         <div id="navbar-image-and-text-1"
             class="bg-white hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block dark:bg-gray-800">
             <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5">
-                <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500" href="/pages" aria-current="page">TOP</a>
+                <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500" href="/" aria-current="page">TOP</a>
                 <form action=" {{ route('logout') }}" method="POST">
                     @csrf
                     <button

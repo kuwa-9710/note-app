@@ -19,7 +19,7 @@
                 <tbody>
                     <tr class="flex flex-row place-content-between items-center">
                         {{-- page title --}}
-                        <td class="text-lg text-slate-700">{{ $page->page_title }}</td>
+                        <td class="text-lg text-slate-700"><a href="pages/{{ $page->id }}">{{ $page->page_title }}</a></td>
 
                         <td>
                             <div class="flex items-center">
@@ -64,7 +64,7 @@
     <form action="/pages/create" method="">
         @csrf
         <button
-            class="md:hidden flex flex-row items-center justify-center w-full border-2 border-indigo-500 rounded-md py-2 mt-6 text-white bg-indigo-500 shadow-lg">
+            class="md:hidden flex flex-row items-center justify-center w-full border-2 rounded-md py-2 mt-6 text-white bg-indigo-500 shadow-lg">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-5 h-5 mr-2">
                 <path stroke-linecap="round" stroke-linejoin="round"
