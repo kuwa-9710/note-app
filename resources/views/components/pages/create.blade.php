@@ -11,7 +11,7 @@
 
     <div class="my-6">
         <x-input-label for="page_title" :value="__('Pageのタイトル')" />
-        <x-text-input id="page_title" class="block mt-1 w-full" type="text" name="page_title" required/>
+        <x-text-input id="page_title" class="block mt-1 w-full" type="text" name="page_title"/>
     </div>
 
     <textarea name="page_content"></textarea>

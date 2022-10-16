@@ -5,7 +5,7 @@
             <x-notes.create-note></x-notes.create-note>
         </x-aside>
         <x-main>
-            <div class="px-4 md:px-10 dark:bg-gray-800">
+            <div class="min-h-full px-4 md:px-10">
                 <x-pages.page-edit :content="$content"></x-pages.page-edit>
             </div>
         </x-main>

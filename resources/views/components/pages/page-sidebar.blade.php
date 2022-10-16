@@ -14,7 +14,7 @@
         <li class="py-2 text-slate-400 border-b border-slate-200 flex place-content-between">更新日:<span
                 class="text-slate-500">{{ $updated_date }}</span></li>
         <li class="pt-4">
-            <x-primary-button class=" text-lg md:text-base w-full flex justify-center mb-2"
+            <x-primary-button class="text-lg md:text-base w-full flex justify-center mb-2"
                 onclick="location.href='/pages/{{ $content->id }}/edit'">編集</x-primary-button>
             <form action="/pages/{{ $content->id }}" method="POST"  onsubmit="return deletePage();" >
                 @csrf

@@ -15,6 +15,14 @@ class PageController extends Controller
     {
         $this->middleware('auth');
     }
+
+    public function top(Note $notes, Page $pages) {
+        $user = Auth::user();
+        $notes = Note::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'DESC')->get();
+        $pages = Page::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'DESC')->get();
+        return view('pages.top', compact('notes', 'pages'));
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -51,7 +59,7 @@ class PageController extends Controller
     public function store(Request $request, Page $page)
     {
         $rules = [
-            'page_title' => 'required|max:50',
+            'page_title' => 'max:50',
             'page_content' => 'required',
             'note_id' => 'required'
         ];
@@ -66,7 +74,13 @@ class PageController extends Controller
         $note = Note::find($page->note_id);
 
         $page->user_id = $request->user()->id;
-        $page->page_title = $request->page_title;
+
+        if ($page->page_title == null) {
+            $page->page_title = '-';
+        } else {
+            $page->page_title = $request->page_title;
+        };
+
         $page->page_content = $request->page_content;
         $page->save();
 
@@ -118,7 +132,7 @@ class PageController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'page_title' => 'required|max:50',
+            'page_title' => 'max:50',
             'page_content' => 'required|max:50',
             'note_id' => 'required'
         ];
@@ -129,7 +143,11 @@ class PageController extends Controller
 
         $page = Page::find($id);
         $note = Note::find($page->note_id);
-        $page->page_title = $request->input('page_title');
+        if ($request->input('page_title') == null) {
+            $page->page_title = '-';
+        } else {
+            $page->page_title = $request->input('page_title');
+        }
         $page->page_content = $request->input('page_content');
         $page->save();
 
