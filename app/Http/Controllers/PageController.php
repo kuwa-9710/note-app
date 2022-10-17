@@ -16,7 +16,8 @@ class PageController extends Controller
         $this->middleware('auth');
     }
 
-    public function top(Note $notes, Page $pages) {
+    public function top(Note $notes, Page $pages)
+    {
         $user = Auth::user();
         $notes = Note::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'DESC')->get();
         $pages = Page::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'DESC')->get();
@@ -74,13 +75,7 @@ class PageController extends Controller
         $note = Note::find($page->note_id);
 
         $page->user_id = $request->user()->id;
-
-        if ($request->page_title == null) {
-            $page->page_title = '-';
-        } else {
-            $page->page_title = $request->page_title;
-        };
-
+        $page->page_title = $request->page_title;
         $page->page_content = $request->page_content;
         $page->save();
 
@@ -134,22 +129,15 @@ class PageController extends Controller
         $rules = [
             'page_title' => 'max:50',
             'page_content' => 'required',
-            'note_id' => 'required'
         ];
         $messages = [
             'required' => 'Noteの選択と、Pageの内容は必須項目です。',
             'max' => 'Pageのタイトルは最大50文字です。'
         ];
-        Validator::make($request->all(), $rules, $messages)->validate();
 
         $page = Page::find($id);
         $note = Note::find($page->note_id);
-
-        if ($request->input('page_title') == null) {
-            $page->page_title = '-';
-        } else {
-            $page->page_title = $request->input('page_title');
-        }
+        $page->page_title = $request->input('page_title');
         $page->page_content = $request->input('page_content');
         $page->save();
 
