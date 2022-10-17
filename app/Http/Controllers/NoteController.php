@@ -53,8 +53,8 @@ class NoteController extends Controller
             'note_title' => 'required|max:50'
         ];
         $messages = [
-            'required' => 'Please fill in the required fields.',
-            'max' => 'Check the number of characters, and make them 50 or less.'
+            'required' => 'Noteタイトルは必須項目です。',
+            'max' => 'Noteのタイトルの最大文字数は50文字です。'
         ];
         Validator::make($request->all(), $rules, $messages)->validate();
 

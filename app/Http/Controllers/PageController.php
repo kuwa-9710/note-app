@@ -64,8 +64,8 @@ class PageController extends Controller
             'note_id' => 'required'
         ];
         $messages = [
-            'required' => 'Please fill in the required fields.',
-            'max' => 'Check the number of characters, and make them 50 or less.'
+            'required' => 'Noteの選択と、Pageの内容は必須項目です。',
+            'max' => 'Pageのタイトルは最大50文字です。'
         ];
         Validator::make($request->all(), $rules, $messages)->validate();
 
@@ -133,17 +133,18 @@ class PageController extends Controller
     {
         $rules = [
             'page_title' => 'max:50',
-            'page_content' => 'required|max:50',
+            'page_content' => 'required',
             'note_id' => 'required'
         ];
         $messages = [
-            'required' => 'Please fill in the required fields.',
-            'max' => 'Check the number of characters. and make them 50 or less.'
+            'required' => 'Noteの選択と、Pageの内容は必須項目です。',
+            'max' => 'Pageのタイトルは最大50文字です。'
         ];
+        Validator::make($request->all(), $rules, $messages)->validate();
 
         $page = Page::find($id);
         $note = Note::find($page->note_id);
-        
+
         if ($request->input('page_title') == null) {
             $page->page_title = '-';
         } else {
