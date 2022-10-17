@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ?? 'SimpleNote' }}</title>
+    <link rel="icon" href="img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180*180" href="img/apple-touch-icon.png">
 
     <script src="https://cdn.tiny.cloud/1/afsqg6fz0ofcnd92w4d5xn5twcca2f7td1u3okjnm0nfr8f7/tinymce/6/tinymce.min.js"
         referrerpolicy="origin"></script>
