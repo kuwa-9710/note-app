@@ -3,7 +3,12 @@
     <div class="mt-8 mb-8">
         <x-input-label for="note_title" :value="__('Noteのタイトル')" class="font-bold text-2xl mb-6" />
         <x-text-input id="note_title" class="block w-full py-3" type="text" name="note_title" />
+        <ul class="mt-2">
+            <li>・Noteのタイトルは25文字以内</li>
+            <li>・絵文字なども可能です</li>
+        </ul>
     </div>
+
 
     <button type="submit"
         class="block w-full bg-indigo-500 text-white py-3 rounded-md hover:bg-indigo-600 active:bg-indigo-700 mb-4">

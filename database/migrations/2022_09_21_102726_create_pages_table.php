@@ -16,13 +16,11 @@ return new class extends Migration
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-
             $table->bigInteger('note_id')->unsigned()->nullable();
             $table->foreign('note_id')
                 ->references('id')
                 ->on('notes')
                 ->cascadeOnDelete();
-            
             $table->string('page_title');
             $table->Text('page_content');
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));

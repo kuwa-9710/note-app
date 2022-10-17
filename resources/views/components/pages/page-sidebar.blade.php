@@ -14,8 +14,13 @@
         <li class="py-2 text-slate-400 border-b border-slate-200 flex place-content-between">更新日:<span
                 class="text-slate-500">{{ $updated_date }}</span></li>
         <li class="pt-4">
-            <x-primary-button class="text-lg md:text-base w-full flex justify-center mb-2"
-                onclick="location.href='/pages/{{ $content->id }}/edit'">編集</x-primary-button>
+            <form action="/pages/{{ $content->id }}/edit">
+                @csrf                
+                <button
+                    type="submit" class="mb-2 text-lg md:text-base border border-indigo-500 bg-indigo-500 text-white w-full flex justify-center bold items-center px-4 py-2 rounded-md font-semibold uppercase tracking-widest hover:bg-indigo-600 disabled:opacity-25 transition ease-in-out duration-150">
+                    編集
+                </button>
+            </form>
             <form action="/pages/{{ $content->id }}" method="POST"  onsubmit="return deletePage();" >
                 @csrf
                 @method('DELETE')

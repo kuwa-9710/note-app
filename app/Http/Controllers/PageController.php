@@ -75,7 +75,7 @@ class PageController extends Controller
 
         $page->user_id = $request->user()->id;
 
-        if ($page->page_title == null) {
+        if ($request->page_title == null) {
             $page->page_title = '-';
         } else {
             $page->page_title = $request->page_title;
@@ -143,6 +143,7 @@ class PageController extends Controller
 
         $page = Page::find($id);
         $note = Note::find($page->note_id);
+        
         if ($request->input('page_title') == null) {
             $page->page_title = '-';
         } else {

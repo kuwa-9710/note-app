@@ -1,17 +1,8 @@
 @props(['pages'])
 <div class="mx-2 md:mx-10 bg-white rounded-lg shadow-md my-5 py-5 px-3">
-    <h2 class="md:flex md:place-content-between border-b border-slate-500 border-dashed md:mx-10 font-bold text-3xl text-slate-800 py-3 mb-5">
+    <h2
+        class="border-b border-slate-500 border-dashed md:mx-10 font-bold text-3xl text-slate-800 py-3 mb-5">
         Pages
-        <button
-            class="text-base font-normal hidden md:flex flex-row items-center justify-center border-2 border-indigo-500 rounded-md p-2 text-white bg-indigo-500 shadow-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="w-5 h-5 mr-2">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-            </svg>
-            Pageを新規作成
-        </button>
-
     </h2>
     @foreach ($pages as $page)
         <div class="py-3 md:mx-10 md:px-10 divide-y divide-slate-300 divide-solid">
@@ -19,7 +10,8 @@
                 <tbody>
                     <tr class="flex flex-row place-content-between items-center">
                         {{-- page title --}}
-                        <td class="text-lg text-slate-700"><a href="pages/{{ $page->id }}">{{ $page->page_title }}</a></td>
+                        <td class="text-lg text-slate-700"><a href="pages/{{ $page->id }}">{{ $page->page_title }}</a>
+                        </td>
 
                         <td>
                             <div class="flex items-center">
@@ -61,10 +53,12 @@
             </table>
         </div>
     @endforeach
+</div>
+<div class="mx-10">
     <form action="/pages/create" method="">
         @csrf
         <button
-            class="md:hidden flex flex-row items-center justify-center w-full border-2 rounded-md py-2 mt-6 border-indigo-500 text-indigo-500 shadow-lg">
+            class="flex flex-row items-center justify-center w-full border-2 border-blue-500 rounded-md py-2 mb-6 text-white bg-blue-500 shadow-lg">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-5 h-5 mr-2">
                 <path stroke-linecap="round" stroke-linejoin="round"
